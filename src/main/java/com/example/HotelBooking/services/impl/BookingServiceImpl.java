@@ -65,8 +65,6 @@ public class BookingServiceImpl implements BookingService {
 
         User currentUser = userService.getCurrentLoggedInUser();
 
-        //Thi method checks if the room specified in the bookingDTO exists in the database.
-        // If not, it throws a NotFoundException.
         Room room = roomRepository.findById(bookingDTO.getRoomId())
                 .orElseThrow(()-> new NotFoundException("Room Not Found"));
 
@@ -128,7 +126,7 @@ public class BookingServiceImpl implements BookingService {
 
         return Response.builder()
                 .status(200)
-                .message("Booking is successfull")
+                .message("Booking is successfully")
                 .booking(bookingDTO)
                 .build();
 
@@ -137,7 +135,7 @@ public class BookingServiceImpl implements BookingService {
     @Override
     public Response findBookingByReferenceNo(String bookingReference) {
         Booking booking = bookingRepository.findByBookingReference(bookingReference)
-                .orElseThrow(()-> new NotFoundException(STR."Booking with reference No: \{bookingReference}Not found"));
+                .orElseThrow(()-> new NotFoundException("Booking with reference No: " + bookingReference + "Not found"));
 
         BookingDTO bookingDTO = modelMapper.map(booking, BookingDTO.class);
         return  Response.builder()

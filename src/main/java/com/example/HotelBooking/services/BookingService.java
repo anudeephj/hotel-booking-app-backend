@@ -2,6 +2,8 @@ package com.example.HotelBooking.services;
 
 import com.example.HotelBooking.dtos.BookingDTO;
 import com.example.HotelBooking.dtos.Response;
+import org.springframework.stereotype.Service;
+
 
 public interface BookingService {
 
