@@ -22,3 +22,4 @@ ENTRYPOINT ["java","-jar","/app.jar"]
 EXPOSE 8080
 
 RUN jar tf /app/app.jar | grep BookingServiceImpl
+RUN java -version
